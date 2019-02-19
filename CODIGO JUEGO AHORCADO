@@ -1,0 +1,72 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class Ahorcado1 {
+
+    public static void main(String[]args) {
+        Scanner in = new Scanner(System.in);
+        String palabra;
+        
+        System.out.println("----INDICACIONES----");
+                System.out.println("Este juego consiste en adivinar las letras\n"
+                                 + "de una palabra ingresada por un jugador\n"
+                                 + "El jugador que se encargara de encontrar las\n"
+                                 + "letras tendra todas las posibles oportunidades\n"
+                                 + "hasta encotrar la palabra completa.");
+                                 
+        
+        System.out.println("Escribe una palabra: ");
+        palabra=in.nextLine();
+        
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        
+        char [] letras = palabra.toCharArray();
+        char[] guiones = new char[letras.length];
+        
+        for(int i= 0; i<letras.length; i++){
+            guiones[i]= '_';       
+        }   
+        System.out.println(guiones);
+        
+        
+        
+        while(Arrays.equals(letras,guiones) == false){
+        System.out.println("Introduce una letra: ");
+        char letrasUsadas = in.next().charAt(0);
+        
+        for(int i=0; i<letras.length; i++){
+        if(letras[i]==letrasUsadas){
+            guiones[i]=letrasUsadas;  
+           
+         }
+        }
+        
+        System.out.println(guiones);
+       
+        if(Arrays.equals(letras,guiones)){
+            System.out.println("*****¡HAS ENCONTRADO LA PALABRA!*****");
+        
+        }
+        }
+       }
+    }
