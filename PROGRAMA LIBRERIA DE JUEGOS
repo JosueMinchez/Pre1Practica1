@@ -1,0 +1,430 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class LibreriaJuegos {
+     public static void main(String [] args){
+        Scanner in = new Scanner(System.in);
+        int opciones;
+        System.out.println("***********JUEGOS DISPONIBLES*********");
+        
+        System.out.println("");
+        System.out.println("1. Ahorcado");
+        System.out.println("2. Basketball");
+        System.out.println("3. Juego de Cartas");
+        System.out.println("4. Salir");
+        
+        
+        System.out.println("INGRESA EL NUMERO DEL JUEGO QUE DESEAS JUGAR: ");
+        opciones = in.nextInt();
+        in.nextLine();
+        
+        switch(opciones){
+            case 1:
+                 String palabra;
+        
+        System.out.println("----INDICACIONES----");
+                System.out.println("Este juego consiste en adivinar las letras\n"
+                                 + "de una palabra ingresada por un jugador\n"
+                                 + "El jugador que se encargara de encontrar las\n"
+                                 + "letras tendra todas las posibles oportunidades\n"
+                                 + "hasta encotrar la palabra completa.");
+                                 
+        
+        System.out.println("Escribe una palabra: ");
+        palabra=in.nextLine();
+        
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        
+        char [] letras = palabra.toCharArray();
+        char[] guiones = new char[letras.length];
+        
+        for(int i= 0; i<letras.length; i++){
+            guiones[i]= '_';       
+        }   
+        System.out.println(guiones);
+        
+        
+        
+        while(Arrays.equals(letras,guiones) == false){
+        System.out.println("Introduce una letra: ");
+        char letrasUsadas = in.next().charAt(0);
+        
+        for(int i=0; i<letras.length; i++){
+        if(letras[i]==letrasUsadas){
+            guiones[i]=letrasUsadas;  
+           
+         }
+        }
+        
+        System.out.println(guiones);
+       
+        if(Arrays.equals(letras,guiones)){
+            System.out.println("*****¡HAS ENCONTRADO LA PALABRA!*****");
+        
+        }
+        }
+                
+                break;
+            
+            case 2:
+      int probabilidad= (int) (Math.random()* 100);
+      int resultado1 = (int) (Math.random()* 100);
+      int resultado2 = (int) (Math.random()* 100);
+      int resultado3 = (int) (Math.random()* 100);
+      int resultado4 = (int) (Math.random()* 100);
+      int resultado5 =  (int) (Math.random()* 100);
+      int resultado6 = (int) (Math.random()* 100);
+      int falta = (int) (Math.random()* 100);
+      int anotacionJugador1 = 0;
+      int anotacionJugador2 = 0;
+      int tactica1;
+      int tactica2;
+      int tactica3;
+      int tactica4;
+      int turnos;
+      String jugador1;
+      String jugador2;
+      
+      System.out.println("----INDICACIONES----");
+                System.out.println("Este juego consiste en una partida de basketball.\n"
+                                 + "Cada jugador tiene diferentes tácticas ya sea para\n"
+                                 + "saltar y anotar como asi mismo defender, hacer falta\n"
+                                 + "y cobrar la falta. Los dos jugadores deben de ingresar su nombre\n"
+                                 + "y los turnos que jugaran cada uno. Los dos tendran la \n"
+                                 + "misma cantidad de turnos.\n"
+                                 + "***AL MOMENTO QUE SE TERMINEN LOS TURNOS GANA EL QUE TENGA MAYOR ANOTACION***");
+      
+        System.out.println("Nombre Primer Jugador: ");
+        jugador1= in.nextLine();
+        
+        System.out.println("Nombre Segundo Jugador: ");
+        jugador2=in.nextLine();
+        
+         System.out.println("Cuantos turnos tendra cada jugador: ");
+         turnos = in.nextInt()*2;
+         
+         if(probabilidad <= 50){
+             System.out.println(jugador1 + ": Aataca\n" + jugador2 + ": Defiende\n");
+        }else{
+             System.out.println(jugador1 + ": Defiende\n" + jugador2 + ": Ataca\n");
+         }
+         while(turnos != 0){
+            turnos--;
+             System.out.println("\n");
+             if(probabilidad<=50){
+                 System.out.println(jugador1 + " Cual es tu Táctica:");
+                 System.out.println("1: Salto Largo\n2: Salto Corto\n");
+                 tactica1 = in.nextInt();
+                 
+                 System.out.println(jugador2 + " Cual es tu Táctica:");
+                 System.out.println("1: Defensa Cuerpo a Cuerpo\n2: Defensa Fuerte\n");
+                 tactica2 = in.nextInt();
+                 
+                 if(tactica1 == 1 && tactica2 == 1){
+                     if(resultado1<=65){
+                        anotacionJugador1 = anotacionJugador1 +3;
+                         System.out.println("ANOTASTE " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado1 <= 35){
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador1 = anotacionJugador1 +2;
+                            System.out.println("ANOTASTE " + jugador1);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador1);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                 }else if(tactica1 == 1 && tactica2 == 2){
+                     if(resultado2 <= 65){
+                        anotacionJugador1 = anotacionJugador1 +3;
+                         System.out.println("ANOTASTE " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado2 <= 65){
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador1 = anotacionJugador1 +2;
+                            System.out.println("ANOTASTE " + jugador1);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador1);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                   }else if(tactica1 == 2 && tactica2 == 1){
+                        if(resultado3 <= 80){
+                        anotacionJugador1 = anotacionJugador1 + 2;
+                         System.out.println("ANOTASTE " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado3 <= 35){
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador1 = anotacionJugador1 +2;
+                            System.out.println("ANOTASTE " + jugador1);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador1);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                 }else{
+                       if(resultado4 <= 80){
+                        anotacionJugador1 = anotacionJugador1 + 2;
+                         System.out.println("ANOTASTE " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado4 <= 65){
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador1 = anotacionJugador1 +2;
+                            System.out.println("ANOTASTE " + jugador1);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador1);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                   }
+                //TURNO JUGADOR2 
+                
+                turnos--;
+                 System.out.println("\n" + jugador1 + " Defiende\n" + jugador2 + " Ataca");
+                 System.out.println(jugador2 + " Cual es tu Táctica:");
+                 System.out.println("1: Salto Largo\n2: Salto Corto\n");
+                 tactica3 = in.nextInt();
+                 
+                 System.out.println(jugador1 + " Cual es tu Táctica:");
+                 System.out.println("1: Defensa Cuerpo a Cuerpo\n2: Defensa Fuerte\n");
+                 tactica4 = in.nextInt();
+                 
+                 if(tactica3 == 1 && tactica4 == 1){
+                     if(resultado3<=65){
+                        anotacionJugador2 = anotacionJugador2 +3;
+                         System.out.println("ANOTASTE " + jugador2);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado3 <= 65){
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador2 = anotacionJugador2 +2;
+                            System.out.println("ANOTASTE " + jugador2);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador2);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador2);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                 }else if(tactica3 == 1 && tactica4 == 2){
+                     if(resultado4 <= 65){
+                        anotacionJugador2 = anotacionJugador2 +3;
+                         System.out.println("ANOTASTE " + jugador2);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado4 <= 35){
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador2 = anotacionJugador2 +2;
+                            System.out.println("ANOTASTE " + jugador2);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador2);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador2);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                   }else if(tactica3 == 2 && tactica4 == 1){
+                        if(resultado5 <= 80){
+                        anotacionJugador1 = anotacionJugador1 + 2;
+                         System.out.println("ANOTASTE " + jugador1);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado5 <= 65){
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador2 = anotacionJugador2 +2;
+                            System.out.println("ANOTASTE " + jugador2);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador2);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador2);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                 }else{
+                       if(resultado6 <= 80){ 
+                        anotacionJugador2 = anotacionJugador2 + 2;
+                         System.out.println("ANOTASTE " + jugador2);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                     }else if(resultado6 <= 35){ 
+                         System.out.println("FALTA!!!");
+                         System.out.println("Tiro LIbre");
+                         if(falta<= 90){
+                            anotacionJugador2 = anotacionJugador2 +2;
+                            System.out.println("ANOTASTE " + jugador2);
+                            System.out.println("Turnos Restantes: " + turnos);
+                            System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                            
+                         }else{
+                             System.out.println("Fallaste " + jugador2);
+                             System.out.println("Turnos Restantes: " + turnos);
+                             System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                             
+                         }
+                     }else{
+                         System.out.println("Fallaste " + jugador2);
+                         System.out.println("Turnos Restantes: " + turnos);
+                         System.out.println("Marcador\n" + jugador1 + ": " + anotacionJugador1 + "\n" + jugador2 + ": " + anotacionJugador2);
+                         
+                     }
+                   }
+             }
+         }
+                  
+                break;
+                
+            case 3:
+                int cantidadDisponible;
+        int cantidadApostar;
+        
+        System.out.println("----INDICACIONES----");
+                System.out.println("Este juego consiste en apostar jugando cartas.\n"
+                                 + "Debes ingresar el dinero total con el que quieres jugar.\n"
+                                 + "El casino nos muestra dos cartas, luego apuestas.\n"
+                                 + "Si la siguiente carta que saca el casino se\n"
+                                 + "encuentra dentro del rango de las dos cartas anteriores\n"
+                                 + "ganas el dinero apostado de lo contrario lo pierdes.\n"
+                                 + "***EL JUEGO TERMINA CUANDO TE QUEDES SIN DINERO***");
+        
+        System.out.println("Dinero disponible :");
+        cantidadDisponible = in.nextInt();
+        
+        while(cantidadDisponible > 0 ){    
+        
+        int carta1 =(int) (Math.random()*(15-9+1)+9);
+        int carta2 = (int) (Math.random()* 8+1);
+        int carta3 = (int) (Math.random() * 15+1);
+        System.out.println("RANGO DE CARTAS");
+        
+        System.out.println("Número de Carta: " + carta1);
+        System.out.println("Número de Carta: " + carta2);
+        
+         System.out.println("Cuanto dinero apostaras: ");
+         cantidadApostar = in.nextInt();
+         System.out.println("Número de Carta: " + carta3);
+         
+          if(carta3 >= carta2 && carta3<=carta1 ){
+            System.out.println("Dinero disponible: " + (cantidadDisponible + cantidadApostar));
+           cantidadDisponible = cantidadDisponible + cantidadApostar;
+        }else{
+            System.out.println("Dinero disponible: " + (cantidadDisponible - cantidadApostar));
+           cantidadDisponible = cantidadDisponible - cantidadApostar;
+          }
+        }
+          System.out.println("TE HAS QUEDADO SIN DINERO ****¡EL JUEGO AH TERMINADO!****");
+       
+                break;
+                
+            case 4:
+                System.out.println("****HAS CERRADO EL MENÚ****");
+                break;
+        }
+
+        
+        
+    }
+    
+}
