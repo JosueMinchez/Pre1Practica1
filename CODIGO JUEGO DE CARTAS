@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+
+public class JuegoCartas {
+    public static void main(String [] args){
+        Scanner in = new Scanner(System.in);
+        int cantidadDisponible;
+        int cantidadApostar;
+        
+        System.out.println("----INDICACIONES----");
+                System.out.println("Este juego consiste en apostar jugando cartas.\n"
+                                 + "Debes ingresar el dinero total con el que quieres jugar.\n"
+                                 + "El casino nos muestra dos cartas, luego apuestas.\n"
+                                 + "Si la siguiente carta que saca el casino se\n"
+                                 + "encuentra dentro del rango de las dos cartas anteriores\n"
+                                 + "ganas el dinero apostado de lo contrario lo pierdes.\n"
+                                 + "***EL JUEGO TERMINA CUANDO TE QUEDES SIN DINERO***");
+        
+        System.out.println("Dinero disponible :");
+        cantidadDisponible = in.nextInt();
+        
+        while(cantidadDisponible > 0 ){    
+        
+        int carta1 =(int) (Math.random()*(15-9+1)+9);
+        int carta2 = (int) (Math.random()* 8+1);
+        int carta3 = (int) (Math.random() * 15+1);
+        System.out.println("RANGO DE CARTAS");
+        
+        System.out.println("Número de Carta: " + carta1);
+        System.out.println("Número de Carta: " + carta2);
+        
+         System.out.println("Cuanto dinero apostaras: ");
+         cantidadApostar = in.nextInt();
+         System.out.println("Número de Carta: " + carta3);
+         
+          if(carta3 >= carta2 && carta3<=carta1 ){
+            System.out.println("Dinero disponible: " + (cantidadDisponible + cantidadApostar));
+           cantidadDisponible = cantidadDisponible + cantidadApostar;
+        }else{
+            System.out.println("Dinero disponible: " + (cantidadDisponible - cantidadApostar));
+           cantidadDisponible = cantidadDisponible - cantidadApostar;
+          }
+        }
+          System.out.println("TE HAS QUEDADO SIN DINERO ****¡EL JUEGO AH TERMINADO!****");
+    }
+  }
